@@ -19,9 +19,7 @@ public class RadioButtonsPage {
     public By youngAgeInput = By.xpath("//input[@type='radio' and @name='age' and @value='0']");
     public By middleAgeInput = By.xpath("//input[@type='radio' and @name='age' and @value='1']");
     public By seniorAgeInput = By.xpath("//input[@type='radio' and @name='age' and @value='2']");
-    //public By groupRadioButtons = By.xpath("//div[@class='row']");
 
-    int myAge = 18;
 
     // Go to radioButtonPage
     public void goToRadioButtonPage() {
@@ -33,7 +31,6 @@ public class RadioButtonsPage {
         }
     }
 
-    //methods
     // 1. Choose Yes by Id
     public void selectYesRadioButton() {
         page.click(radioButtonYes);
@@ -49,7 +46,6 @@ public class RadioButtonsPage {
     }
 
     //2.Find default selected radio button
-    //Create list of inputs by name
     public void findDefaultRadio(){
         String checked;
         String labelText;
@@ -79,7 +75,4 @@ public class RadioButtonsPage {
             page.driver.findElement(seniorAgeInput).click();
         }
     }
-
-
-
 }
