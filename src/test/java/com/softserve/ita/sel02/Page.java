@@ -41,6 +41,10 @@ public class Page {
         element.click();
     }
 
+    public void getAttribute(WebElement element, String attribute){
+        element.getAttribute(attribute);
+    }
+
 
 
 }

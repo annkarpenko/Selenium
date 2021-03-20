@@ -2,13 +2,8 @@ package com.softserve.ita.sel02.pages;
 
 import com.softserve.ita.sel02.Page;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 import java.util.List;
 
@@ -20,56 +15,71 @@ public class RadioButtonsPage {
     }
 
     public By RadioButtonPage = By.xpath("//*[contains(text(), 'Radio Button')]");
-    public By radioYes = By.cssSelector("#yes");
+    public By radioButtonYes = By.xpath("//input[@id='yes']");
+    public By youngAgeInput = By.xpath("//input[@type='radio' and @name='age' and @value='0']");
+    public By middleAgeInput = By.xpath("//input[@type='radio' and @name='age' and @value='1']");
+    public By seniorAgeInput = By.xpath("//input[@type='radio' and @name='age' and @value='2']");
+    //public By groupRadioButtons = By.xpath("//div[@class='row']");
+
+    int myAge = 18;
 
     // Go to radioButtonPage
     public void goToRadioButtonPage() {
         page.click(RadioButtonPage);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void selectYesButton() {
-        page.click(radioYes);
+    //methods
+    // 1. Choose Yes by Id
+    public void selectYesRadioButton() {
+        page.click(radioButtonYes);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
+    public String verifyAttributes(String attr1) {
+        return page.driver.findElement(radioButtonYes).getAttribute(attr1);
+    }
 
+    //2.Find default selected radio button
+    //Create list of inputs by name
+    public void findDefaultRadio(){
+        String checked;
+        String labelText;
 
+        List<WebElement> input = page.driver.findElements(By.name("news"));
 
-  /*  @Test
-    public void ButtonTest (){
-
-        //1. Choose Yes by Id
-        driver.findElementByCssSelector("#yes").click();
-        System.out.println("Are you enjoying the classes? - yes is selected");
-
-        //2.Find default selected radio button
-        //Create list of inputs by name
-        List<WebElement> input = driver.findElements(By.name("news"));
-
-        //find input values
         for (WebElement webElement : input) {
-            String checked = webElement.getAttribute("checked");
+            checked = webElement.getAttribute("checked");
             if (checked == null) {
                 checked = "false";
             }
 
-            String labelText = ((RemoteWebElement) input.get(1)).findElementByXPath("..").getText();
+            labelText = ((RemoteWebElement) input.get(1)).findElementByXPath("..").getText();
             if (checked.equals("true")) {
                 System.out.println("The title of default radio button: " + labelText);
             }
         }
+    }
 
-        //Select age group
-        int myAge = 18;
-
-        if (myAge < 21) {
-            driver.findElementByXPath("//*[@id=\"contentblock\"]/section/div[3]/div/div/input[1]").click();
-        } else if (myAge > 40){
-            driver.findElementByXPath("//*[@id=\"contentblock\"]/section/div[3]/div/div/input[3]").click();
+    //Select age group
+    public void selectAgeGroup(int test, int age){
+        if (age < 21) {
+            page.driver.findElement(youngAgeInput).click();
+        } else if (age < 41) {
+            System.out.println("Default state");
         } else {
-            driver.findElementByXPath("//*[@id=\"contentblock\"]/section/div[3]/div/div/input[2]").click();
+            page.driver.findElement(seniorAgeInput).click();
         }
     }
-*/
+
 
 
 }

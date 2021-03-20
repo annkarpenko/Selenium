@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    private final static int SECONDSTOWAIT = 5;
+    private final static int SECONDSTOWAIT = 10;
     public WebDriver driver;
     public WebDriverWait wait;
     public Page page;
@@ -25,18 +25,14 @@ public class BaseTest {
         baseURL = "http://www.leafground.com/home.html";
 
         driver.manage().timeouts().implicitlyWait(SECONDSTOWAIT, TimeUnit.SECONDS);
-
-        //Maximize Window
         driver.manage().window().maximize();
-
-        //Instantiate the Page Class
         page = new Page(driver);
     }
-/*
+
     @AfterClass
     public void teardown () {
         driver.quit();
-    }*/
+    }
 
 
 }
