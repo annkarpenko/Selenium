@@ -1,4 +1,4 @@
-package sel02;
+package com.softserve.ita.sel02;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,7 +7,9 @@ import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.util.List;
 
-public class RadioButtons {
+public class RadioButtonsPage {
+
+
     public static void main(String[] args) {
         String url = "http://www.leafground.com/pages/radio.html";
         ChromeDriver driver = new ChromeDriver();

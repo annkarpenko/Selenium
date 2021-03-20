@@ -1,4 +1,4 @@
-package sel01;
+package com.softserve.ita.sel01;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
