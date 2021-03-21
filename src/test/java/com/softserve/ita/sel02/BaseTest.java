@@ -29,10 +29,11 @@ public class BaseTest {
         page = new Page(driver);
     }
 
+    /*
     @AfterClass
     public void teardown () {
         driver.quit();
-    }
+    }*/
 
 
 }

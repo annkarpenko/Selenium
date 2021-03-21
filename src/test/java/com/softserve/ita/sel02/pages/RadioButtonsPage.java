@@ -75,4 +75,5 @@ public class RadioButtonsPage {
             page.driver.findElement(seniorAgeInput).click();
         }
     }
+
 }

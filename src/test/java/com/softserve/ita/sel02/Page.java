@@ -1,5 +1,6 @@
 package com.softserve.ita.sel02;
 
+import com.softserve.ita.sel02.pages.ButtonsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +15,7 @@ public class Page {
 
     //Pages
     private RadioButtonsPage _radioButtonsPage;
+    private ButtonsPage _ButtonsPage;
 
     //Constructor
     public Page(WebDriver driver){
@@ -24,6 +26,10 @@ public class Page {
 
     public RadioButtonsPage radioButtonsPage() {
         return (_radioButtonsPage == null) ? (_radioButtonsPage = new RadioButtonsPage(this)) : (_radioButtonsPage);
+    }
+
+    public ButtonsPage ButtonsPage() {
+        return (_ButtonsPage == null) ? (_ButtonsPage = new ButtonsPage(this)) : (_ButtonsPage);
     }
 
     // Open URL
@@ -41,9 +47,7 @@ public class Page {
         element.click();
     }
 
-    public void getAttribute(WebElement element, String attribute){
-        element.getAttribute(attribute);
-    }
+
 
 
 
