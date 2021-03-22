@@ -1,6 +1,7 @@
 package com.softserve.ita.sel02;
 
 import com.softserve.ita.sel02.pages.ButtonsPage;
+import com.softserve.ita.sel02.pages.DisapperPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,6 +32,10 @@ public class Page {
     public ButtonsPage ButtonsPage() {
         return (_ButtonsPage == null) ? (_ButtonsPage = new ButtonsPage(this)) : (_ButtonsPage);
     }
+
+  /*  public DisapperPage DisapperPage() {
+        return (_DisapperPage == null) ? (_DisapperPage = new DisapperPage(this)) : (_DisapperPage);
+    }*/
 
     // Open URL
     public void open(String url) {
